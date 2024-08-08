@@ -55,7 +55,7 @@ public class JobController {
     }
 
     @PutMapping("/{jobId}")
-    public ResponseEntity<?> updateJobById(@PathVariable Long jobId, @RequestBody Job job){
+    public ResponseEntity<String> updateJobById(@PathVariable Long jobId, @RequestBody Job job){
         String jobUpdateStatus = jobService.updateJobById(jobId,job);
         if(jobUpdateStatus.equals("JOB UPDATED"))
             return new ResponseEntity<>(jobUpdateStatus,HttpStatus.OK);
