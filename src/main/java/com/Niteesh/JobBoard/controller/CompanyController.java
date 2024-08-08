@@ -2,6 +2,7 @@ package com.Niteesh.JobBoard.controller;
 
 import com.Niteesh.JobBoard.model.Company;
 import com.Niteesh.JobBoard.model.Job;
+import com.Niteesh.JobBoard.model.Review;
 import com.Niteesh.JobBoard.service.CompanyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,11 @@ import java.util.List;
 @RequestMapping("/companies")
 public class CompanyController {
     private CompanyService companyService;
+    private JobController jobController;
 
-    public CompanyController(CompanyService service){
+    public CompanyController(CompanyService service,JobController jobController){
         this.companyService = service;
+        this.jobController = jobController;
     }
 
     @GetMapping
@@ -46,10 +49,18 @@ public class CompanyController {
 
     @DeleteMapping("/{companyId}")
     public ResponseEntity<String> deleteCompanyById(@PathVariable Long companyId){
-        String deleteResponse = companyService.deleteCompanyById(companyId);
-        if(deleteResponse.equals("NO ITEM"))
+        Company company = companyService.findCompanyById(companyId);
+        if(company == null){
             return new ResponseEntity<>("NO ITEM",HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>("SUCCESSFULLY DELETED", HttpStatus.OK);
+        }
+        else{
+            List<Job> jobs = company.getJobs();
+            for(Job job:jobs){
+                jobController.deleteJobById(job.getId());
+            }
+            companyService.deleteCompanyById(companyId);
+            return new ResponseEntity<>("SUCCESSFULLY DELETED", HttpStatus.OK);
+        }
     }
 
     @PutMapping("/{companyId}")

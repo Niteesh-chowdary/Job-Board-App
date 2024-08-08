@@ -2,6 +2,7 @@ package com.Niteesh.JobBoard.service;
 
 import com.Niteesh.JobBoard.model.Company;
 import com.Niteesh.JobBoard.model.Job;
+import com.Niteesh.JobBoard.model.Review;
 import com.Niteesh.JobBoard.repository.CompanyRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +13,10 @@ import java.util.List;
 @Service
 public class CompanyService {
     private CompanyRepository companyRepository;
-    public CompanyService(CompanyRepository repository){
+    private ReviewService reviewService;
+    public CompanyService(CompanyRepository repository,ReviewService reviewService){
         this.companyRepository = repository;
+        this.reviewService = reviewService;
     }
     public List<Company> findAll() {
         return companyRepository.findAll();
@@ -30,15 +33,12 @@ public class CompanyService {
         return companyRepository.findById(companyId).orElse(null);
     }
 
-    public String deleteCompanyById(Long companyId) {
-        Company company = companyRepository.findById(companyId).orElse(null);
-        if(company == null){
-            return "NO ITEM";
+    public void deleteCompanyById(Long companyId) {
+        List<Review> reviews = companyRepository.findById(companyId).get().getReviews();
+        for(Review review:reviews){
+            reviewService.deleteReviewById(review.getId());
         }
-        else {
-            companyRepository.deleteById(companyId);
-            return "SUCCESSFULLY DELETED";
-        }
+        companyRepository.deleteById(companyId);
     }
 
     public String updateCompanyById(Long companyId, Company company) {

@@ -6,24 +6,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String title;
     private String description;
-    private String location;
+    private double rating;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "company")
-    private List<Job> jobs;
-
-    @OneToMany(mappedBy = "company")
-    private List<Review> reviews;
+    @ManyToOne
+    Company company;
 }
