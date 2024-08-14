@@ -4,8 +4,9 @@
 # TESTING instructions
 
 1. git clone the repo
-2. Install Docker or Docker Desktop to run the docker-compose file to get the postgres server running.
-3. cd into the cloned repo
+2. Install JDK22
+3. Install Docker or Docker Desktop to run the docker-compose file to get the postgres server running.
+4. cd into the cloned repo
 
 ```bash
 RUN
