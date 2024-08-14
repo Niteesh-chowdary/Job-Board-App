@@ -33,15 +33,15 @@ GET http://localhost:8080/companies
 API request to POST a company
 ```bash
 POST http://localhost:8080/companies
-Click Body
-select raw
-select json
-paste the following in json body
+1. Click Body
+2. select raw
+3. select json
+4. paste the following in json body
 {
     "name": "Microsoft",
     "description":"Software Industry company",
     "location":"WA"
 }
-click send
+5. click send
 ```
     
