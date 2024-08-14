@@ -44,4 +44,22 @@ POST http://localhost:8080/companies
 }
 5. click send
 ```
+API request to PUT(update) a company
+```bash
+POST http://localhost:8080/companies
+1. Click Body
+2. select raw
+3. select json
+4. paste the following in json body
+{
+    "name": "updated-name",
+    "description":"updated-description",
+    "location":"updated-location"
+}
+5. click send
+```
+API request to DELETE a company (place a company id in the place of companyId to delete the company from database.
+```bash
+POST http://localhost:8080/companies/{companyId}
+```
     
