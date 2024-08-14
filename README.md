@@ -23,4 +23,25 @@
 12. run the command java JobBoardApplication.java
 13. It will bring up the job board application
 14. Install postman to test the server with various APIS
+15. In postman Try the following commands
+
+## Company
+API request to GET the list of companies
+```bash
+GET http://localhost:8080/companies --> return the list of companies in JSON
+```
+API request to POST a company
+```bash
+POST http://localhost:8080/companies
+Click Body
+select raw
+select json
+paste the following in json body
+{
+    "name": "Microsoft",
+    "description":"Software Industry company",
+    "location":"WA"
+}
+click send
+```
     
