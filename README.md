@@ -26,9 +26,9 @@
 15. In postman Try the following commands
 
 ## Company
-API request to GET the list of companies
+API request to GET the list of companies in JSON
 ```bash
-GET http://localhost:8080/companies --> return the list of companies in JSON
+GET http://localhost:8080/companies
 ```
 API request to POST a company
 ```bash
