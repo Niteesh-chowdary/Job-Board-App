@@ -20,4 +20,7 @@
 9. After creating the server. Create a database in the server.
 10. databse name = jobBoardApp
 11. now cd into src/main/java/com/Niteesh/JobBoard
-12. run the command java 
+12. run the command java JobBoardApplication.java
+13. It will bring up the job board application
+14. Install postman to test the server with various APIS
+    
