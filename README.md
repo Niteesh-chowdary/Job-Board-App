@@ -1,5 +1,8 @@
 # Job-Board-App
-![Monolithic System Desing of JobBoard Application](https://github.com/Niteesh-chowdary/Job-Board-App/blob/main/SPRING%20BOOT%20MONOLITHIC%20DESIGN-2.png)
+![Monolithic System Desing of Job Board Application](https://github.com/Niteesh-chowdary/Job-Board-App/blob/main/SPRING%20BOOT%20MONOLITHIC%20DESIGN-2.png)
+
+# Microservice architecture of the Job Board Application is in the following Git Repo:
+https://github.com/Niteesh-chowdary/JobBoard-Microservice-Application
 
 # TESTING instructions
 
