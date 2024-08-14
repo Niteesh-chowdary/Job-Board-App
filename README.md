@@ -18,4 +18,6 @@
    5. password = 123456789
   
 9. After creating the server. Create a database in the server.
-10. databse name = 
+10. databse name = jobBoardApp
+11. now cd into src/main/java/com/Niteesh/JobBoard
+12. run the command java 
